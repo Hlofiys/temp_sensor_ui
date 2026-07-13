@@ -35,6 +35,8 @@ temp_sensor_ui-*.tar
 npm-debug.log
 /assets/node_modules/
 
+/.elixir_ls/
+
 # Database files
 *.db
 *.db-*

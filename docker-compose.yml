@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - PHX_HOST=localhost
+      # Tell Phoenix where to create the SQLite file inside the container
+      - DATABASE_PATH=/data/temp_sensor_ui_prod.db
+      # Generate a secure key by running: mix phx.gen.secret
+      - SECRET_KEY_BASE=replace_this_with_your_generated_secret_key_base
+    volumes:
+      # Mount a persistent volume to store your SQLite database file
+      - sqlite_data:/data
+    restart: always
+
+volumes:
+  sqlite_data:
